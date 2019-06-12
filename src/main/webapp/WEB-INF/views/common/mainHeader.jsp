@@ -66,7 +66,9 @@
                 	<li><a href="/sign_out.do" role="button">로그아웃</a></li>
                 	<li><a href="/edit_memberInfo.do" role="button">개인정보수정</a></li>
                 </c:if>
-                <li><a href="/sign_up.do" role="button">회원가입</a></li>
+                <c:if test="${sessionScope.user_id == null}">
+                	<li><a href="/sign_up.do" role="button">회원가입</a></li>
+                </c:if>
             </ul>
         </div>
     </div>
