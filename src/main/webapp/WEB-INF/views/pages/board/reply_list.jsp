@@ -89,12 +89,14 @@ function cancelUpdate(){
 			</div>
 			<div class="article-util">
 				<ul class="article-util-list" id="reply_menu">
-					<li>
-					<button type="button" class="delete-answer-button" onclick="modifyReply('${row.reply_text}','${row.rno}')">수정</button>
-					</li>
-					<li>
-					<button type="button" class="delete-answer-button" onclick="deleteReply('${row.rno}')">삭제</button>
-					</li>		
+				    <c:if test="${sessionScope.user_id == row.replyer}">
+						<li>
+							<button type="button" class="delete-answer-button" onclick="modifyReply('${row.reply_text}','${row.rno}')">수정</button>
+						</li>
+						<li>
+							<button type="button" class="delete-answer-button" onclick="deleteReply('${row.rno}')">삭제</button>
+						</li>
+					</c:if>		
 				</ul>
 			</div>
 		</article>
