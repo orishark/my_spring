@@ -28,8 +28,11 @@ public class UploadFileUtils {
 			// 이미지 파일인 경우..
 			if(null != mType) {
 				
-				ServletContext application = request.getServletContext();
-				String realPath = application.getRealPath("/upload");
+				//ServletContext application = request.getServletContext();
+				//String realPath = application.getRealPath("/upload");
+				
+				// 리눅스 웹서버
+				String realPath = "/home/orihark/upload";
 				
 				int index = fileName.lastIndexOf("\\");
 				fileName = fileName.substring(index + 1);
