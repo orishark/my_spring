@@ -41,8 +41,12 @@ public class UploadController {
 			// 헤더를 생성
 			HttpHeaders headers = new HttpHeaders();
 			
-			ServletContext application = request.getServletContext();
-			String uploadPath = application.getRealPath("/upload/");
+			// 로컬서버
+			//ServletContext application = request.getServletContext();
+			//String uploadPath = application.getRealPath("/upload/");
+						
+			// 리눅스 웹서버
+			String uploadPath = "/home/orihark/upload/";
 			
 			in = new FileInputStream(uploadPath + fileName);
 			
