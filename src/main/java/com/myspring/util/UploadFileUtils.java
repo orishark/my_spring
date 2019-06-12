@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class UploadFileUtils {
 
+	public static String WEB_SERVER_ROOT ="/home/orihark/upload";
+	
 	public static String uploadFile(MultipartFile multipartFile, HttpServletRequest request) throws FileNotFoundException, IOException {
 		
 		String fileName = "";
@@ -28,8 +30,11 @@ public class UploadFileUtils {
 			// 이미지 파일인 경우..
 			if(null != mType) {
 				
-				ServletContext application = request.getServletContext();
-				String realPath = application.getRealPath("/upload");
+				//ServletContext application = request.getServletContext();
+				//String realPath = application.getRealPath("/upload");
+				
+				// 웹서버 경로
+				String realPath = UploadFileUtils.WEB_SERVER_ROOT;
 				
 				int index = fileName.lastIndexOf("\\");
 				fileName = fileName.substring(index + 1);
@@ -41,7 +46,7 @@ public class UploadFileUtils {
 					file = new File(realPath, fileName);
 				}
 				
-				System.out.println("uploadRoot : "  + realPath);
+				System.out.println("upload root : "  + realPath);
 				System.out.println("fileName: " + fileName);
 				
 				IOUtils.copy(multipartFile.getInputStream(), new FileOutputStream(file));

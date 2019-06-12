@@ -41,9 +41,12 @@ public class UploadController {
 			// 헤더를 생성
 			HttpHeaders headers = new HttpHeaders();
 			
-			ServletContext application = request.getServletContext();
-			String uploadPath = application.getRealPath("/upload/");
-
+			//ServletContext application = request.getServletContext();
+			//String uploadPath = application.getRealPath("/upload/");
+			
+			// 웹서버 경로
+			String uploadPath = UploadFileUtils.WEB_SERVER_ROOT + "/";
+			
 			in = new FileInputStream(uploadPath + fileName);
 			
 			// 이미지 파일인 경우

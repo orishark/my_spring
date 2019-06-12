@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.model.member.dto.MemberDTO;
 import com.myspring.service.member.MemberService;
 import com.myspring.util.MediaUtils;
+import com.myspring.util.UploadFileUtils;
 
 @Controller
 @RequestMapping("/")
@@ -84,8 +85,11 @@ public class MemberController {
 			// 이미지 파일인 경우..
 			if(null != mType) {
 				
-				ServletContext application = request.getServletContext();
-				String realPath = application.getRealPath("/upload");
+				//ServletContext application = request.getServletContext();
+				//String realPath = application.getRealPath("/upload");
+				
+				// 웹서버 경로
+				String realPath = UploadFileUtils.WEB_SERVER_ROOT;
 				
 				int index = fileName.lastIndexOf("\\");
 				fileName = fileName.substring(index + 1);
@@ -97,8 +101,8 @@ public class MemberController {
 					file = new File(realPath, fileName);
 				}
 				
-				System.out.println("업로드 경로 : "  + realPath);
-				System.out.println("업로드 파일명: " + fileName);
+				System.out.println("upload root : "  + realPath);
+				System.out.println("fileName: " + fileName);
 				
 				IOUtils.copy(multipartFile.getInputStream(), new FileOutputStream(file));
 				member.setImage_name(fileName);
@@ -138,8 +142,11 @@ public class MemberController {
 			// 이미지 파일인 경우..
 			if(null != mType) {
 				
-				ServletContext application = request.getServletContext();
-				String realPath = application.getRealPath("/upload");
+				//ServletContext application = request.getServletContext();
+				//String realPath = application.getRealPath("/upload");
+				
+				// 웹서버 경로
+				String realPath = UploadFileUtils.WEB_SERVER_ROOT;
 				
 				int index = fileName.lastIndexOf("\\");
 				fileName = fileName.substring(index + 1);
@@ -151,8 +158,8 @@ public class MemberController {
 					file = new File(realPath, fileName);
 				}
 				
-				System.out.println("업로드 경로 : "  + realPath);
-				System.out.println("업로드 파일명: " + fileName);
+				System.out.println("upload root : "  + realPath);
+				System.out.println("fileName: " + fileName);
 				
 				IOUtils.copy(multipartFile.getInputStream(), new FileOutputStream(file));
 				member.setImage_name(fileName);
