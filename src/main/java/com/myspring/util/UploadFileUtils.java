@@ -28,11 +28,8 @@ public class UploadFileUtils {
 			// 이미지 파일인 경우..
 			if(null != mType) {
 				
-				//ServletContext application = request.getServletContext();
-				//String realPath = application.getRealPath("/upload");
-				
-				// 리눅스 웹서버
-				String realPath = "/home/orihark/upload";
+				ServletContext application = request.getServletContext();
+				String realPath = application.getRealPath("/upload");
 				
 				int index = fileName.lastIndexOf("\\");
 				fileName = fileName.substring(index + 1);
@@ -44,8 +41,8 @@ public class UploadFileUtils {
 					file = new File(realPath, fileName);
 				}
 				
-				System.out.println("업로드 경로 : "  + realPath);
-				System.out.println("업로드 파일명: " + fileName);
+				System.out.println("uploadRoot : "  + realPath);
+				System.out.println("fileName: " + fileName);
 				
 				IOUtils.copy(multipartFile.getInputStream(), new FileOutputStream(file));
 				//member.setImage_name(fileName);
