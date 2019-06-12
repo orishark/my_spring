@@ -69,7 +69,12 @@ function cancelUpdate(){
 				<div class="article-header-thumb">
 					<!--<img src="https://graph.facebook.com/v2.3/1324855987/picture"
 						class="article-author-thumb" alt=""> -->
+					<c:if test="${row.image_name != null}">
 						<img src="/upload/displayFile.do?fileName=${row.image_name}" class="article-author-thumb" alt="">
+					</c:if>
+					<c:if test="${row.image_name == null}">
+						<img src="/static/images/default.png" class="article-author-thumb" alt="">
+					</c:if>
 				</div>
 				<div class="article-header-text">
 					<a href="/profile.do?writer=${row.replyer}" class="article-author-name">${row.replyer}</a>

@@ -55,7 +55,12 @@ $(function(){
               </div>
               <div class="form-group">
                   <label>프로필 이미지</label>
-                  <img src="/upload/displayFile.do?fileName=${member.image_name}" id="preview" width="80" height="80"></img>
+                  <c:if test="${member.image_name != null}">
+                  	   <img src="/upload/displayFile.do?fileName=${member.image_name}" id="preview" width="80" height="80"></img>
+                  </c:if>
+                  <c:if test="${member.image_name == null}">
+				  	   <img src="/static/images/default.png" class="article-author-thumb" alt="">
+				  </c:if>
                   <input type="file" id="profile_image" name="profile_image" class="profile_image" accept=".jpg,.jpeg,.png,.gif">
                   <label for="profile_image">파일선택</label>
                   <span id="file_name">선택된 파일없음</span>

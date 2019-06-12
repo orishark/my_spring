@@ -10,14 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-import com.myspring.model.board.dao.BoardDAOImpl;
-import com.myspring.model.member.dao.MemberDAOImpl;
-import com.myspring.model.reply.dao.ReplyDAOImpl;
-
 @Configuration
-@MapperScan(basePackageClasses=BoardDAOImpl.class)
-@MapperScan(basePackageClasses=MemberDAOImpl.class)
-@MapperScan(basePackageClasses=ReplyDAOImpl.class)
+@MapperScan(value={"com.myspring.model.**.dao"})
 public class DBConfig {
 
 	@Bean
@@ -27,10 +21,7 @@ public class DBConfig {
 		
 		sessionFactoryBean.setDataSource(dataSource);
 		sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis-mapper/*.xml"));
-		
-		//Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mybatis-mapper/*.xml");
-		//sessionFactoryBean.setMapperLocations(res);
-		
+	
 		return sessionFactoryBean.getObject();
 	}
 	

@@ -168,7 +168,7 @@ $(function(){
               </div>
               <div class="form-group">
                   <label for="profile_image">프로필 이미지</label>
-                  <img src="/static/images/80-text.png" id="preview" width="80" height="80"></img>
+                  <img src="/static/images/default.png" id="preview" width="80" height="80"></img>
                   <input type="file" id="profile_image" name="profile_image" accept=".jpg,.jpeg,.png,.gif">
               </div>
               <div class="form-group">

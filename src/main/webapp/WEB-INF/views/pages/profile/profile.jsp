@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,12 @@
                 <div class="well well-sm">
                     <div class="media">
                         <a class="thumbnail pull-left" href="#">
-                            <img class="media-object" width="80" height="80" src="/upload/displayFile.do?fileName=${member.image_name}">
+                        	<c:if test="${member.image_name != null}">
+                            	<img class="media-object" width="80" height="80" src="/upload/displayFile.do?fileName=${member.image_name}">
+                            </c:if>
+                            <c:if test="${member.image_name == null}">
+								<img src="/static/images/default.png" class="article-author-thumb" alt="">
+							</c:if>
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">${member.user_id}</h4>

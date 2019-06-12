@@ -53,7 +53,12 @@ function listReply(num){
               <article class="article">
                   <div class="article-header">
                       <div class="article-header-thumb">
-                          <img src="/upload/displayFile.do?fileName=${dto.image_name}" class="article-author-thumb" alt="">
+                          <c:if test="${member.image_name != null}">
+                          	   <img src="/upload/displayFile.do?fileName=${dto.image_name}" class="article-author-thumb" alt="">
+                          </c:if>
+                          <c:if test="${member.image_name == null}">
+				  	  		   <img src="/static/images/default.png" class="article-author-thumb" alt="">
+				 		  </c:if>
                       </div>
                       <div class="article-header-text">
                           <a href="/profile.do?writer=${dto.writer}" class="article-author-name">${dto.writer}</a>
