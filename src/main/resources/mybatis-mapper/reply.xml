@@ -30,10 +30,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="listReply" resultType="com.myspring.model.reply.dto.ReplyDTO">
 		<include refid="paging_header" />
-		SELECT rno, bno, reply_text, replyer, regdate
-    	FROM REPLY
-    	WHERE bno=#{bno}
-   		ORDER BY rno DESC
+		SELECT r.rno, r.bno, r.reply_text, r.replyer, r.regdate, m.image_name
+    	FROM REPLY r JOIN MEMBER m ON r.replyer = m.user_id
+    	WHERE r.bno=#{bno}
+   		ORDER BY r.rno DESC
    		 <include refid="paging_footer" />
 	</select>
 

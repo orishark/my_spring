@@ -15,4 +15,5 @@ public class ReplyDTO {
 	private Date regdate;
 	private Date update_date;
 	private String secret_reply;
+	private String image_name;
 }
