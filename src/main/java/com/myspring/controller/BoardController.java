@@ -36,7 +36,6 @@ public class BoardController {
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
 		
-		keyword = "";
 		List<BoardDTO> list = boardService.listAll(start,end,search_option,keyword); // 목록
 
 		mav.setViewName("list"); // 이동할 페이지 저장
