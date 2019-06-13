@@ -53,10 +53,10 @@ function listReply(num){
               <article class="article">
                   <div class="article-header">
                       <div class="article-header-thumb">
-                          <c:if test="${member.image_name != null}">
+                          <c:if test="${dto.image_name != null}">
                           	   <img src="/upload/displayFile.do?fileName=${dto.image_name}" class="article-author-thumb" alt="">
                           </c:if>
-                          <c:if test="${member.image_name == null}">
+                          <c:if test="${dto.image_name == null}">
 				  	  		   <img src="/static/images/default.png" class="article-author-thumb" alt="">
 				 		  </c:if>
                       </div>
